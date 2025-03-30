@@ -7,7 +7,7 @@ let transforms = {
 // Transform using the object
 function transformWord(word) {
     let transformed = transforms[word];
-
+   
     if (transformed && transformed !== word) {
         console.log(`Transformed: ${word} -> ${transformed}`);
     } else {

@@ -1,0 +1,132 @@
+charAt()
+charCodeAt()
+concat()
+includes()
+endsWith()
+indexOf()
+lastIndexOf()
+localeCompare()
+match()
+
+First, charAt(). I remember it returns the character at a specific index in a string. Like, if I have "Hello", charAt(1) would be 'e' since indices start at 0. Example: "Hello".charAt(1) → 'e'.
+
+Next is charCodeAt(). This gives the Unicode value of the character at a given position. So, using "A".charCodeAt(0) should return 65. Example check: correct.
+
+Concat() is for combining strings. So str1.concat(str2) would merge them. If str1 is "Hello" and str2 is " World", the result would be "Hello World". What if one is null? Oh, but in JS, if you pass null to concat, it converts it to "null", so maybe the example uses empty strings or other.
+
+Includes() checks if a substring exists. Like "Hello".includes("ell") would return true. EndsWith() checks the ending. "Hello".endsWith("lo") → true.
+
+IndexOf() finds the first occurrence's index. "Hello".indexOf("l") is 2. lastIndexOf() is the last occurrence. So "Hello".lastIndexOf("l") would be 3, right?
+
+localeCompare() compares strings based on locale, returns a number indicating order. For example, "a".localeCompare("b") gives a negative number since "a" comes before "b".
+
+Match() uses a regex to find matches. "Hello".match(/l/g) returns an array of ['l', 'l'].
+
+Wait, for localeCompare(), what's the exact return value? If the string is before the argument, it's negative; after, positive. So example: 'apple'.localeCompare('banana') → negative.
+
+Examples need to cover different cases. Let me structure each function with a sample input and output.
+
+Let me check each function again to avoid mistakes. CharAt, correct. Concat with multiple arguments? Yes, like str.concat(" ", "World"). Maybe show that.
+
+For includes(), case sensitivity matters. So if the example is "Hello".includes("hello"), it would be false unless using toLowerCase.
+
+EndsWith() can take a length parameter. But the example might just use the default.
+
+Index of with a substring: "Hello world".indexOf("world") would be 6? Wait, 'Hello world' has space at index 5. H is 0, e 1, l 2, l 3, o 4, space 5, w 6. So yes, indexOf("world") is 6.
+
+LastIndexOf() example: "Hello world, welcome world".lastIndexOf("world") would find the last occurrence.
+
+Match example: "The rain in SPAIN".match(/ain/g) would give ['ain', 'ain'] but case-sensitive. Or using /ain/gi for case-insensitive.
+
+Wait, in the example given, maybe use a simple regex. Let's make sure each example is correct.
+
+Okay, compiling all of these into clear examples. Maybe a table or code snippets. Need to ensure each example is accurate and demonstrates the function's use.
+
+Here are examples of each JavaScript string function:
+
+charAt()
+Returns the character at a specified index:
+
+<>
+javascript
+
+
+const str = "Hello";
+console.log(str.charAt(1)); // "e"
+charCodeAt()
+Returns the Unicode value of the character at a specified index:
+
+<>
+javascript
+
+
+const str = "A";
+console.log(str.charCodeAt(0)); // 65
+concat()
+Combines two or more strings:
+
+<>
+javascript
+
+
+const str1 = "Hello";
+const str2 = " World";
+console.log(str1.concat(str2)); // "Hello World"
+includes()
+Checks if a string contains a substring (case-sensitive):
+
+<>
+javascript
+
+
+const str = "JavaScript";
+console.log(str.includes("Script")); // true
+endsWith()
+Checks if a string ends with a specific substring:
+
+<>
+javascript
+
+
+const str = "Hello World";
+console.log(str.endsWith("World")); // true
+indexOf()
+Returns the first index of a substring (or -1 if not found):
+
+<>
+javascript
+
+
+const str = "Hello";
+console.log(str.indexOf("l")); // 2
+lastIndexOf()
+Returns the last index of a substring (or -1 if not found):
+
+<>
+javascript
+
+
+const str = "Hello World, welcome World";
+console.log(str.lastIndexOf("World")); // 20
+localeCompare()
+Compares strings based on locale and returns:
+
+0 if equal,
+-1 if the string comes before the argument,
+1 if it comes after:
+<>
+javascript
+
+
+const str1 = "apple";
+const str2 = "banana";
+console.log(str1.localeCompare(str2)); // -1 ("apple" comes first)
+match()
+Searches for a regex pattern and returns an array of matches:
+
+<>
+javascript
+
+
+const str = "The rain in SPAIN stays mainly in the plain";
+console.log(str.match(/ain/gi)); // ["ain", "AIN", "ain", "ain"]

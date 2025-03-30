@@ -1,5 +1,5 @@
 
-function fetchData(url, method, headers) {
+async function fetchData(url, method, headers) {
     return fetch(url, {
         method: method,
         headers: headers
@@ -7,7 +7,7 @@ function fetchData(url, method, headers) {
 }
 
 
-function curry(fn) {
+async function curry(fn) {
     return function(a) {
         return function(b) {
             return function(c) {
@@ -19,8 +19,8 @@ function curry(fn) {
 
 const curriedFetchData = curry(fetchData);
 
-const fetchGetJSON = curriedFetchData('https://jsonplaceholder.typicode.com/posts')('GET')({
+const fetchGetJSON =  curriedFetchData('https://jsonplaceholder.typicode.com/posts')('GET')({
     'Content-Type': 'application/json'
 });
 
-fetchGetJSON.then(data => console.log(data));
+await fetchGetJSON.then(data => console.log(data));
